@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row mt-5">
+        <h3 class="text-center text-uppercase p-2"> LISTA DE PERSONAS  </h3>
+        {{#if personas}}
+            <table class="table text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each personas}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{nombre}}</td>
+                        <td>{{edad}}</td>
+                        <td>{{correo}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/edit/{{id}}" class="btn btn-warning">
+                                <i class="fa-solid fa-pencil"></i></a>
+                                <a href="/delete/{{id}}" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="8" class="table-dark text-center">
+                            REGISTROS DE PERSONAS
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        
+        {{else}}
+        <div class="card text-center mx-auto" style="width: 350px;">
+            <div class="card-header">
+                <h3>Crear una Persona</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">No hay personas registradas.</p>
+                <a href="/add" class="btn btn-primary">Ir a CREAR</a>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
